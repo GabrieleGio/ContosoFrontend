@@ -1,0 +1,32 @@
+# Node modules
+node_modules/
+
+# Angular build output
+/dist
+/out-tsc
+/.angular
+
+# IDE files
+.idea/
+.vscode/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Environment files
+/.env
+
+# TypeScript config files (optional, se li hai)
+tsconfig.json
+tsconfig.app.json
+tsconfig.spec.json
+angular.json
+karma.conf.js
+
+# Npm log files
+npm-debug.log
+yarn-error.log
+
+# Log files
+*.log
