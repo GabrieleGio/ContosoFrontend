@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { StudenteDTO } from './student.service';
-import { CorsoDTO } from './courses.service';
+import { CourseDTO } from './courses.service';
 
 
 export interface EnrollmentDTO {
@@ -10,7 +10,7 @@ export interface EnrollmentDTO {
   idStudente: number;
   idCorso: number;
   studente: StudenteDTO;
-  corso: CorsoDTO;
+  corso: CourseDTO;
 }
 
 @Injectable({

@@ -1,0 +1,23 @@
+@if (courses.length > 0) {
+  <div class="courses-grid">
+    @for (course of courses; track $index) {
+      <p-card class="course-card" (click)="openCourse(course)">
+        <ng-template pTemplate="header">
+          <img
+            [src]="course.immagineUrl || 'assets/images/House.png'"
+            alt="Immagine corso"
+            class="course-img"
+          />
+        </ng-template>
+        <div class="course-titolo">
+          <h2>{{ course.nome }}</h2>
+        </div>
+      </p-card>
+    }
+  </div>
+} @else {
+  <div class="no-result">
+    <p>Nessun annuncio trovato. Riprova più tardi</p>
+  </div>
+  
+}

@@ -3,22 +3,22 @@ import { EnrollmentDTO } from './enrollment.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-export interface CorsoDTO {
-  idCorso: number;
-  titolo: string;
-  crediti: number;
+export interface CourseDTO {
+  idCourse: number;
+  title: string;
+  credits: number;
   enrollments: EnrollmentDTO[];
 }
 
 @Injectable({
   providedIn: 'root'
 })
-export class CorsoService {
-  //TODO mettere l'url corretto
-  private apiUrl = ''
+export class CourseService {
+  private apiUrl = 'http://localhost:5294/api'
   constructor(private http: HttpClient) {}
 
-  getCorsi():Observable<CorsoDTO> {
-    return this.http.get<CorsoDTO>(this.apiUrl);
+  see_all(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/Corso`)
   }
+
 }
