@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { StudenteDTO } from './studente.service';
-import { CorsoDTO } from './corso.service';
+import { StudenteDTO } from './student.service';
+import { CorsoDTO } from './courses.service';
+
 
 export interface EnrollmentDTO {
   idEnrollment: number;
