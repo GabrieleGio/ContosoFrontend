@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
   imports: [
     CardModule,
     ButtonModule,
-    
   ],
   templateUrl: './courses-list.component.html', 
   styleUrl: './courses-list.component.scss'
@@ -41,7 +40,7 @@ constructor(private courseService: CourseService, private router: Router) {}
       return
     }
     
-    this.router.navigate(['/course/', course.corsoID]);
+    this.router.navigate(['/course',course.corsoID]);
 }
 
 

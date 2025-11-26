@@ -1,23 +1,31 @@
-<p-card class="course-card" header="{{ course.title }}" subheader="ID Corso: {{ course.idCourse }}">
-  
-  <!-- Dettagli principali -->
-  <div class="course-details" style="margin-bottom: 1rem;">
-    <p-badge value="Crediti: {{ course.credits }}" severity="info" style="margin-right: 0.5rem"></p-badge>
-    <p-badge value="Docente: {{ course.instructor || 'N/D' }}" severity="success" style="margin-right: 0.5rem"></p-badge>
-  </div>
+@if(course) {
+<div class="course-container">
 
+  <!-- HEADER -->
+  <header class="course-header">
+    <h1>{{ course.Titolo }}</h1>
+    <p class="course-code">ID Corso: {{ course.corsoID }}</p>
+  </header>
 
-  <!-- Descrizione -->
-  <div class="course-description" style="margin-top: 1rem;">
-    <h3>Descrizione del corso</h3>
-    <p>{{ course.description || 'Descrizione non disponibile.' }}</p>
-  </div>
+  <!-- DETTAGLI PRINCIPALI -->
+  <section class="course-details">
+    <div><strong>Crediti:</strong> {{ course.crediti }}</div>
+    <div><strong>Durata:</strong> {{ course.durataMesi || 'N/A' }} mesi</div>
+  </section>
 
+  <!-- DESCRIZIONE -->
+  <section class="course-description">
+    <h2>Descrizione del corso</h2>
+    <p>{{ course.descrizione || 'Descrizione non disponibile.' }}</p>
+  </section>
 
-  <!-- Azioni -->
-  <div class="course-actions" style="margin-top: 1rem; display: flex; gap: 1rem;">
-    <button pButton type="button" label="Iscriviti" icon="pi pi-check" (click)="enroll(course.idCourse)"></button>
-    <button pButton type="button" label="Torna alla lista" icon="pi pi-arrow-left" class="p-button-secondary" (click)="goBack()"></button>
-  </div>
+  <!-- AZIONI -->
+  <section class="course-actions">
+    <button (click)="enroll(course.CorsoID)">Iscriviti</button>
+    <button (click)="goBack()">Torna alla lista</button>
+  </section>
 
-</p-card>
+</div>
+} @else {
+    <h1>Error</h1>
+}

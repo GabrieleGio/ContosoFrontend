@@ -1,20 +1,33 @@
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CourseService } from './../../services/courses.service';
 import { Component } from '@angular/core';
-import { Badge } from "primeng/badge";
-import { Card } from "primeng/card";
 
 @Component({
   selector: 'app-course',
-  imports: [Badge, Card],
+  imports: [],
   templateUrl: './course.component.html',
   styleUrl: './course.component.scss'
 })
+
 export class CourseComponent {
 
-  constructor(private courseService: CourseService, private router: Router  ) {}
+  id:number;
+
+  constructor(
+    private courseService: CourseService, 
+    private router: Router,
+    private route: ActivatedRoute  
+  ) {
+    console.log(this.route);
+    this.id = Number.parseInt(this.route.snapshot.paramMap.get('id')?? "");
+  }
 
   course: any
+
+  ngOnInit(): void {
+    
+    if (this.id) this.onView(this.id);
+  }
 
   onView(idCourse: number) {
     this.courseService.see(idCourse).subscribe({
