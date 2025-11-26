@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register-student',
-  imports: [],
+  imports: [ReactiveFormsModule, CommonModule, RouterModule],
   templateUrl: './register-student.component.html',
   styleUrl: './register-student.component.scss'
 })
@@ -13,6 +14,8 @@ export class RegisterStudentComponent {
   submitted = false;
 
   registerForm = new FormGroup({
+    nome: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(25)]),
+    cognome: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(25)]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(255)]),
   },);
@@ -34,10 +37,13 @@ export class RegisterStudentComponent {
     }
     
     const formValues = this.registerForm.value;
+    const nome = formValues.nome ?? '';
+    const cognome = formValues.cognome ?? '';
     const email = formValues.email ?? '';
     const password = formValues.password ?? '';
+    const dataIscrizione = new Date().toISOString();
 
-  this.authService.registerStudent(email, password).subscribe({
+  this.authService.registerStudent(nome, cognome, email, password, dataIscrizione).subscribe({
     next: (response) => {
       console.log('Student successfully registered');
       alert('Registration completed successfully');

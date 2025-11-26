@@ -16,8 +16,8 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  registerStudent(email: string, password: string) {
-    const registerData = {email, password,};
+  registerStudent(nome: string, cognome: string, dataIscrizione: string, email: string, password: string) {
+    const registerData = {nome, cognome, dataIscrizione, email, password };
     return this.http.post(this.apiUrlRegisterStudent, registerData);
   }
 
@@ -26,9 +26,8 @@ export class AuthService {
     return this.http.post(this.apiUrlLoginStudent, loginData);
   }
 
-
-  registerInstructor(email: string, password: string) {
-    const registerData = {email, password,};
+  registerInstructor(nome: string, cognome: string, email: string, password: string, dataAssunzione: string) {
+    const registerData = {nome, cognome, email, password, dataAssunzione};
     return this.http.post(this.apiUrlRegisterInstructor, registerData);
   }
 

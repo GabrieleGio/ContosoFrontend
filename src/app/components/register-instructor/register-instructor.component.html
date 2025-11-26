@@ -1,1 +1,88 @@
-<p>register-instructor works!</p>
+<div class="register-container">
+  <div class="register-card">
+    <h2>Register as an Instructor</h2>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nome">First Name</label>
+        <input
+          id="nome"
+          type="text"
+          formControlName="nome"
+          class="form-control"
+          [ngClass]="{'is-invalid': submitted && registerForm.controls.nome.invalid}"
+          placeholder="Enter your first name"
+          />
+        <div *ngIf="submitted && registerForm.controls.nome.invalid" class="error-message">
+          <div *ngIf="registerForm.controls.nome.errors?.['required']">First Name is required.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="cognome">Last Name</label>
+        <input
+          id="cognome"
+          type="text"
+          formControlName="cognome"
+          class="form-control"
+          [ngClass]="{'is-invalid': submitted && registerForm.controls.cognome.invalid}"
+          placeholder="Enter your last name"
+        />
+        <div *ngIf="submitted && registerForm.controls.cognome.invalid" class="error-message">
+          <div *ngIf="registerForm.controls.cognome.errors?.['required']">Last Name is required.</div>
+        </div>
+      </div>
+    
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          class="form-control"
+          [ngClass]="{'is-invalid': submitted && registerForm.controls.email.invalid}"
+          placeholder="Enter your email"
+        />
+        <div *ngIf="submitted && registerForm.controls.email.invalid" class="error-message">
+          <div *ngIf="registerForm.controls.email.errors?.['required']">Email is required.</div>
+          <div *ngIf="registerForm.controls.email.errors?.['email']">Invalid email format.</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          formControlName="password"
+          class="form-control"
+          [ngClass]="{'is-invalid': submitted && registerForm.controls.password.invalid}"
+          placeholder="Enter your password"
+        />
+        <div *ngIf="submitted && registerForm.controls.password.invalid" class="error-message">
+          <div *ngIf="registerForm.controls.password.errors?.['required']">Password is required.</div>
+          <div *ngIf="registerForm.controls.password.errors?.['minlength']">Password must be at least 6 characters long.</div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-submit" [disabled]="registerForm.invalid">Register</button>
+
+      <div *ngIf="submitted && registerForm.invalid" class="error-summary">
+        <p>Please fill in all required fields correctly before submitting.</p>
+      </div>
+    </form>
+
+    <div class="no-result" *ngIf="!registerForm.valid">
+      <p>The data you entered is invalid. Please try again.</p>
+    </div>
+
+    <div class="additional-links">
+      <p>
+        <a [routerLink]="'/login-instructor'" class="login-link">Already have an account? Login now</a>
+      </p>
+      <p>
+        <a [routerLink]="'/login-student'" class="instructor-link">Are you a student?</a>
+      </p>
+    </div>
+  </div>
+</div>

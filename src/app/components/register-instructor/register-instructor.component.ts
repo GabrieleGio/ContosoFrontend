@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register-instructor',
-  imports: [],
+  imports: [ReactiveFormsModule, CommonModule, RouterModule],
   templateUrl: './register-instructor.component.html',
   styleUrl: './register-instructor.component.scss'
 })
@@ -13,6 +14,8 @@ export class RegisterInstructorComponent {
   submitted = false;
 
   registerForm = new FormGroup({
+    nome: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(25)]),
+    cognome: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(25)]),
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(255)]),
   },);
@@ -34,10 +37,14 @@ export class RegisterInstructorComponent {
     }
     
     const formValues = this.registerForm.value;
+    const nome = formValues.nome ?? '';
+    const cognome = formValues.cognome ?? '';
     const email = formValues.email ?? '';
     const password = formValues.password ?? '';
+    //per ora uso la data attuale
+    const dataAssunzione = new Date().toISOString();
 
-  this.authService.registerInstructor(email, password).subscribe({
+  this.authService.registerInstructor(nome, cognome, email, password, dataAssunzione).subscribe({
     next: (response) => {
       console.log('Instructor successfully registered');
       alert('Registration completed successfully');
