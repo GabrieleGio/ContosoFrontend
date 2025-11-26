@@ -1,0 +1,23 @@
+<p-card class="course-card" header="{{ course.title }}" subheader="ID Corso: {{ course.idCourse }}">
+  
+  <!-- Dettagli principali -->
+  <div class="course-details" style="margin-bottom: 1rem;">
+    <p-badge value="Crediti: {{ course.credits }}" severity="info" style="margin-right: 0.5rem"></p-badge>
+    <p-badge value="Docente: {{ course.instructor || 'N/D' }}" severity="success" style="margin-right: 0.5rem"></p-badge>
+  </div>
+
+
+  <!-- Descrizione -->
+  <div class="course-description" style="margin-top: 1rem;">
+    <h3>Descrizione del corso</h3>
+    <p>{{ course.description || 'Descrizione non disponibile.' }}</p>
+  </div>
+
+
+  <!-- Azioni -->
+  <div class="course-actions" style="margin-top: 1rem; display: flex; gap: 1rem;">
+    <button pButton type="button" label="Iscriviti" icon="pi pi-check" (click)="enroll(course.idCourse)"></button>
+    <button pButton type="button" label="Torna alla lista" icon="pi pi-arrow-left" class="p-button-secondary" (click)="goBack()"></button>
+  </div>
+
+</p-card>

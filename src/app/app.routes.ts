@@ -5,12 +5,14 @@ import { LoginStudentComponent } from './components/login-student/login-student.
 import { RegisterStudentComponent } from './components/register-student/register-student.component';
 import { LoginInstructorComponent } from './components/login-instructor/login-instructor.component';
 import { RegisterInstructorComponent } from './components/register-instructor/register-instructor.component';
+import { CourseComponent } from './components/course/course.component';
 
 export const routes: Routes = [
     {path: "", redirectTo: "courses-list", pathMatch: 'full'},
     {path: "courses-list", component: CoursesListComponent},
-    {path: "login-student", component:LoginStudentComponent},
-    {path: "register-student", component:RegisterStudentComponent},
-    {path: "login-instructor", component:LoginInstructorComponent},
-    {path: "register-instructor", component:RegisterInstructorComponent}
+    {path: "login-student", component: LoginStudentComponent},
+    {path: "register-student", component: RegisterStudentComponent},
+    {path: "login-instructor", component: LoginInstructorComponent},
+    {path: "register-instructor", component: RegisterInstructorComponent},
+    {path: "course/:id", component: CourseComponent},
 ];

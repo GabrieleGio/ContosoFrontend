@@ -14,6 +14,7 @@ export interface CourseDTO {
   providedIn: 'root'
 })
 export class CourseService {
+
   private apiUrl = 'http://localhost:5294/api'
   constructor(private http: HttpClient) {}
 
@@ -21,4 +22,7 @@ export class CourseService {
     return this.http.get(`${this.apiUrl}/Corso`)
   }
 
+  see(idCourse: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/Corso/${idCourse}`)
+  }
 }

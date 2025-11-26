@@ -18,8 +18,7 @@ import { Router } from '@angular/router';
 export class CoursesListComponent {
 
 courses: any [] = []
-annuncio: any;
-  constructor(private courseService: CourseService, private router: Router) {}
+constructor(private courseService: CourseService, private router: Router) {}
 
   ngOnInit(): void {
     this.onView(); 
@@ -28,7 +27,7 @@ annuncio: any;
     this.courseService.see_all().subscribe({
       next: (data) => {
         this.courses = data;
-        console.log('Corsi ricevuti:', data);
+        //console.log('Corsi ricevuti:', data);
       },
       error: (err) => console.error('Errore:', err)
       
@@ -42,7 +41,7 @@ annuncio: any;
       return
     }
     
-    this.router.navigate(['/Corso', course.idCourse]);
+    this.router.navigate(['/course/', course.corsoID]);
 }
 
 
