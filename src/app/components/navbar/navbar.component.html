@@ -22,7 +22,7 @@
 <ng-template pTemplate="end">
   @if (true) {
     <button 
-      (click)="displayLogin = true" 
+      routerLink="/login-student"
       style="
         cursor:pointer; 
         border-radius: 5px;
@@ -53,8 +53,3 @@
 </ng-template>
   
 </p-menubar>
-
-<p-dialog [(visible)]="displayLogin" [modal]="true" [closable]="true" [style]="{width: '700px', height: '400px'}"
-          styleClass="centered-dialog">
-  <!-- <app-login [Mode]="'Login'" (loginSuccess)="onLoginSuccess()"></app-login> -->
-</p-dialog>

@@ -7,6 +7,7 @@ import { MenuItem } from 'primeng/api';
 import { AvatarModule } from 'primeng/avatar';
 import { BadgeModule } from 'primeng/badge';
 import { DialogModule } from 'primeng/dialog';
+import { RouterModule } from '@angular/router';
 //import { LoginComponent } from "../login/login.component";
 
 @Component({
@@ -20,6 +21,7 @@ import { DialogModule } from 'primeng/dialog';
     AvatarModule,
     BadgeModule,
     DialogModule,
+    RouterModule
     //LoginComponent,
 ],
   templateUrl: './navbar.component.html',
@@ -28,26 +30,11 @@ import { DialogModule } from 'primeng/dialog';
 })
 export class NavbarComponent {
   items: any[] = [];
-  displayLogin: boolean = false;
   //username: string | null = localStorage.getItem('username') ?? '';
   username: string | null = null;
   
   email: string = '';
   password: string = '';
-
-  onLoginSuccess() {
-    this.displayLogin = false;
-    //this.username = localStorage.getItem('username');
-  }
-
-  login() {
-    console.log('Login con:', this.email, this.password);
-    this.displayLogin = false;
-  }
-  register() {
-    //console.log('Register con:', this.email, this.password, this.username);
-    this.displayLogin = false;
-  }
 
   logout() {
     localStorage.removeItem('token');

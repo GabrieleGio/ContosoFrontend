@@ -1,0 +1,92 @@
+/* Contenitore principale per la login */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4; /* colore di sfondo chiaro */
+}
+
+/* Card di login */
+.login-card {
+  width: 80%;
+  max-width: 400px;
+  padding: 30px;
+  background-color: rgba(218, 200, 116, 0.4); /* colore di sfondo simile al menubar */
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+/* Stile per le etichette e i campi del form */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  text-align: left;
+  font-size: 1.1rem;
+  color: #2c3e50;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  margin-top: 5px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #6c757d;
+}
+
+.is-invalid {
+  border-color: #e74c3c;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+/* Bottone di invio */
+.btn-submit {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2rem;
+  color: white;
+  background-color: rgba(218, 200, 116, 0.7);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-submit:disabled {
+  background-color: #ddd;
+}
+
+.error-summary {
+  color: #e74c3c;
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+/* Messaggio di errore per credenziali non valide */
+.no-result {
+  color: #e74c3c;
+  font-size: 1rem;
+  margin-top: 15px;
+}
+
