@@ -1,6 +1,6 @@
 <div class="login-container">
   <div class="login-card">
-    <h2>Login</h2>
+    <h2>Login Studente</h2>
 
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
@@ -45,5 +45,15 @@
     <div class="no-result" *ngIf="!loginForm.valid">
       <p>Invalid credentials, please try again.</p>
     </div>
+    
+    <div class="additional-links">
+      <p>
+        <a [routerLink]="'/register-student'" class="register-link">Non sei registrato? Registrati ora</a>
+      </p>
+      <p>
+        <a [routerLink]="'/login-instructor'" class="instructor-link">Sei un istruttore?</a>
+      </p>
+    </div>
+
   </div>
 </div>

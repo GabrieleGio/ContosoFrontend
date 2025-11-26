@@ -90,3 +90,31 @@ input:focus {
   margin-top: 15px;
 }
 
+/* Sezione per i link aggiuntivi */
+.additional-links {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #2c3e50;
+}
+
+.additional-links a {
+  text-decoration: none;
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+.additional-links a:hover {
+  text-decoration: underline;
+}
+
+.register-link {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.instructor-link {
+  display: block;
+}
+
+
