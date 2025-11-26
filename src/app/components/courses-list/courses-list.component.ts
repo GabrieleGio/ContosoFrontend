@@ -5,20 +5,17 @@ import { CardModule } from 'primeng/card';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-course',
+  selector: 'app-courses-list',
   standalone: true,
   imports: [
     CardModule,
     ButtonModule,
     
   ],
-  templateUrl: './course.component.html',
-  styleUrl: './course.component.scss'
+  templateUrl: './courses-list.component.html', 
+  styleUrl: './courses-list.component.scss'
 })
-export class CourseComponent {
-  openCourse(_t2: any) {
-  throw new Error('Method not implemented.');
-}
+export class CoursesListComponent {
 
 courses: any [] = []
 annuncio: any;
@@ -37,14 +34,16 @@ annuncio: any;
       
     });
   }
-  openAnnuncio(course: any) {
-    console.log('Oggetto passato:', course); 
-    if (!course) {
-      console.error('ID corso mancante!');
-      return;
-    }
 
+  openCourse(course: any) {
+    console.log('Oggetto passato:', course);
+    if(!course) {
+      console.log("Oggetto non presente");
+      return
+    }
+    
     this.router.navigate(['/Corso', course.idCourse]);
 }
+
 
 }
