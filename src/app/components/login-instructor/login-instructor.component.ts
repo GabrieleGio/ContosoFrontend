@@ -18,7 +18,7 @@ export class LoginInstructorComponent {
     password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(255)])
   });
 
-  returnUrl: string = '/home';
+  returnUrl: string = '/courses-list';
 
   constructor(
     private authService: AuthService, 
